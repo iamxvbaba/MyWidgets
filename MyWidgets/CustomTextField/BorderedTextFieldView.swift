@@ -89,8 +89,8 @@ struct BorderedTextFieldView: View {
                     .padding(.horizontal, 3)
                     .foregroundStyle(.primary.opacity(0.5))
                     .background(Color(uiColor: .systemBackground))
-                    .offset(y:text.count > 0 ? -8 : 0)
-                    .opacity(text.count > 0 ? 1.0 : 0)
+                    .offset(y:text.isEmpty ? 0 : -8) // 有内容时向上偏移
+                    .opacity(text.isEmpty ? 0 : 1.0) // 有内容时才显示此提示
                     .animation(.bouncy, value: text.count > 0)
             }
             .padding(.horizontal, 10)
